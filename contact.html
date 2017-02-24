@@ -105,7 +105,7 @@
 							<div class="col-sm-8">
 								
 							</div>
-							<div class="col-sm-2"><input class="btn btn-success text-right" type="submit" id="submit" onsubmit="" name="submit" value="ارسال"></div>
+							<div class="col-sm-2"><input class="btn btn-success text-right" type="submit" id="submit" onsubmit="checkForm" name="submit" value="ارسال"></div>
 						</div>
 					</form>
 					<!--?php if($result != "") echo $result; ?-->
@@ -121,5 +121,19 @@
 		//login.style.display = "none";
 		var title = document.getElementsByTagName("title")[0];
 		title.innerHTML = " MGH | contact-us ";
+		function checkForm(){
+			var text = document.getElementById("text");
+			var tel = document.getElementById("tel");
+			var email = document.getElementById("email");
+			var name = document.getElementById("name");
+			
+			if(tel.value != "" && email.value != "" && text.value != "" && name.value !="")
+			{
+				return true;
+			}else{
+				alert("some of form fields are empty");
+				return false;
+			}	
+		}
 	}
 </script>
